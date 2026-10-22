@@ -1,30 +1,27 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight, ClipboardCheck, LineChart, Scale, ShieldCheck, Headset, FileSignature } from 'lucide-react'
+import { ArrowRight, ShieldCheck, Headset, FileSignature } from 'lucide-react'
 import { PageTransition, Reveal, Stagger, StaggerItem } from '../components/motion'
 
 const services = [
   {
-    icon: ClipboardCheck,
-    kicker: '01 — Oversight',
+    kicker: '01 - Oversight',
     title: 'Property Management',
-    copy: 'Complete listing administration and maintenance workflows: tenant sourcing, rent collection, inspections, repairs and monthly owner reporting — all handled by a dedicated portfolio manager.',
+    copy: 'Complete listing administration and maintenance workflows: tenant sourcing, rent collection, inspections, repairs and monthly owner reporting, all handled by a dedicated portfolio manager.',
     points: ['Tenant screening & leasing', 'Rent collection and reconciliation', 'Maintenance ticketing & inspections'],
     image: '/assets/mansion-kigali.jpg',
   },
   {
-    icon: LineChart,
-    kicker: '02 — Growth',
+    kicker: '02 - Growth',
     title: 'Investment Advisory',
-    copy: 'Helping clients locate premium, high-yield land and commercial opportunities in fast-growing sectors — with yield modelling, corridor analysis and off-market access across Rwanda.',
+    copy: 'Helping clients locate premium, high-yield land and commercial opportunities in fast-growing sectors, with yield modelling, corridor analysis and off-market access across Rwanda.',
     points: ['Yield & appreciation modelling', 'Commercial and land sourcing', 'Off-market development plots'],
     image: '/assets/estate-lawn.jpg',
   },
   {
-    icon: Scale,
-    kicker: '03 — Compliance',
+    kicker: '03 - Compliance',
     title: 'Legal Consultation',
-    copy: 'Secure transactional processing, title deed verification and localized compliance support — from RDB registration and notarised transfers to mortgage-ready documentation.',
+    copy: 'Secure transactional processing, title deed verification and localized compliance support, from RDB registration and notarised transfers to mortgage-ready documentation.',
     points: ['Title deed verification & search', 'Notarised transfers and contracts', 'RDB and local compliance support'],
     image: '/assets/green-bungalow.jpg',
   },
@@ -69,9 +66,6 @@ export default function Services() {
                   loading="lazy"
                   className="h-[240px] w-full object-cover transition-transform duration-700 hover:scale-105 sm:h-[300px]"
                 />
-                <span className="absolute left-5 top-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/95 text-navy-900 backdrop-blur">
-                  <service.icon size={21} aria-hidden="true" />
-                </span>
               </figure>
 
               <div className="px-1 py-2">
@@ -113,20 +107,33 @@ export default function Services() {
 
       <section className="container-x pb-2">
         <Reveal>
-          <div className="bg-white p-8 sm:p-14">
+          <div className="py-8 sm:py-14">
             <h2 className="font-display text-[30px] font-semibold text-navy-900 sm:text-[36px]">
               How we work with you
             </h2>
-            <Stagger className="mt-10 grid gap-6 md:grid-cols-3">
-              {process.map((step) => (
-                <StaggerItem key={step.title}>
-                  <div className="h-full bg-white p-7">
-                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl text-navy-900 tap-target">
-                      <step.icon size={22} aria-hidden="true" />
+            <Stagger className="relative mt-10 grid gap-8 md:grid-cols-3 md:gap-0">
+              <span
+                aria-hidden="true"
+                className="absolute bottom-6 left-[23px] top-6 w-px bg-navy-900/40 md:bottom-auto md:left-[16.666%] md:right-[16.666%] md:top-1/2 md:h-px md:w-auto"
+              />
+              {process.map((step, index) => (
+                <StaggerItem key={step.title} className="relative">
+                  <article className="grid grid-cols-[3rem_1fr] gap-x-5 md:grid-cols-1 md:grid-rows-[minmax(130px,1fr)_3rem_minmax(130px,1fr)] md:gap-0">
+                    <span className="relative z-10 col-start-1 row-start-1 inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-navy-900 bg-white text-navy-900 md:col-start-1 md:row-start-2 md:justify-self-center">
+                      <step.icon size={19} aria-hidden="true" />
                     </span>
-                    <h3 className="mt-5 font-display text-xl font-semibold text-navy-900">{step.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-body">{step.note}</p>
-                  </div>
+                    <div
+                      className={`col-start-2 row-start-1 self-center py-1 md:col-start-1 md:px-5 md:text-center ${
+                        index % 2 === 0
+                          ? 'md:row-start-1 md:self-end md:pb-6'
+                          : 'md:row-start-3 md:self-start md:pt-6'
+                      }`}
+                    >
+                      <p className="label-caps">Step {String(index + 1).padStart(2, '0')}</p>
+                      <h3 className="mt-2 font-display text-xl font-semibold text-navy-900">{step.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-body">{step.note}</p>
+                    </div>
+                  </article>
                 </StaggerItem>
               ))}
             </Stagger>

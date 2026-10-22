@@ -13,9 +13,9 @@ export default function PropertyCard({ property, index = 0 }) {
   }
 
   const specs = [
-    { icon: BedDouble, label: property.bedrooms ? `${property.bedrooms} Beds` : '—' },
-    { icon: Bath, label: property.bathrooms ? `${property.bathrooms} Baths` : '—' },
-    { icon: Maximize, label: formatArea(property.area) || '—' },
+    { icon: BedDouble, label: property.bedrooms ? `${property.bedrooms} Beds` : '-' },
+    { icon: Bath, label: property.bathrooms ? `${property.bathrooms} Baths` : '-' },
+    { icon: Maximize, label: formatArea(property.area) || '-' },
   ]
 
   return (

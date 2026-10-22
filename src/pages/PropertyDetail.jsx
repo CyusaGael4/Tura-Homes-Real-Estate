@@ -6,9 +6,9 @@ import { formatArea, formatRWF } from '../lib/properties'
 
 export default function PropertyDetail({ property, isLoading = false }) {
   const specs = [
-    { icon: BedDouble, label: property.bedrooms ? `${property.bedrooms} Beds` : '—' },
-    { icon: Bath, label: property.bathrooms ? `${property.bathrooms} Baths` : '—' },
-    { icon: Maximize, label: formatArea(property.area) || '—' },
+    { icon: BedDouble, label: property.bedrooms ? `${property.bedrooms} Beds` : '-' },
+    { icon: Bath, label: property.bathrooms ? `${property.bathrooms} Baths` : '-' },
+    { icon: Maximize, label: formatArea(property.area) || '-' },
   ]
 
   return (

@@ -50,12 +50,12 @@ export default function Properties() {
               Find a space that fits your life in Kigali
             </h1>
             <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-body break-words text-balance">
-              Search every live listing across Kigali’s neighbourhoods — buy, rent, sell or invest
+              Search every live listing across Kigali’s neighbourhoods. Buy, rent, sell or invest
               with fully documented properties.
             </p>
           </Reveal>
 
-          {/* Live filter bar — stays in sync with the hero filter hub. */}
+          {/* Live filter bar stays in sync with the hero filter hub. */}
           <Reveal delay={0.15} className="relative z-50 mt-9">
             <div className="grid gap-4 rounded-[26px] border border-mist-200 bg-white p-5 card-shadow sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1.3fr_auto]">
               <CustomSelect
@@ -164,7 +164,7 @@ export default function Properties() {
             </span>
             <h2 className="mt-6 font-display text-2xl font-semibold">No properties match those filters</h2>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-body break-words text-center">
-              Try widening your search — clear the location or switch the category to see more of
+              Try widening your search, clear the location or switch the category to see more of
               our Kigali portfolio.
             </p>
             <button

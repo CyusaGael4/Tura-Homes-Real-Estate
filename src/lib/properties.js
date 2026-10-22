@@ -1,7 +1,7 @@
 /**
  * Normalises a raw `properties` row from Supabase into the shape the UI renders.
  * The live table columns are: id, title, description, category, type, location,
- * price, currency, image_url, beds, baths, sqft, featured, created_at — the
+ * price, currency, image_url, beds, baths, sqft, featured, created_at; the
  * mapping stays tolerant of alternative spellings just in case.
  */
 
@@ -18,7 +18,7 @@ export const LOCAL_PHOTOS = [
 ]
 
 /**
- * Seed rows ship with placeholder URLs such as `https://unsplash.com` — those
+ * Seed rows ship with placeholder URLs such as `https://unsplash.com`. These
  * render as broken images, so we treat them as missing and use a local photo.
  */
 const isUsableImageUrl = (value) => {

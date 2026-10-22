@@ -1,25 +1,22 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight, HeartHandshake, Sparkles, Target, Users } from 'lucide-react'
+import { ArrowRight, Users } from 'lucide-react'
 import CountUp from '../components/CountUp'
 import { PageTransition, Reveal, Stagger, StaggerItem } from '../components/motion'
 import aboutImage from '../../assets/chatgpt-image-sep-4-2026-11-26-17-am.jpg'
 
 const values = [
   {
-    icon: Target,
     title: 'Transparency',
-    copy: 'Verified listings, honest pricing and clear documentation at every step — no hidden fees, no surprises at the closing table.',
+    copy: 'Verified listings, honest pricing and clear documentation at every step, with no hidden fees or surprises at the closing table.',
   },
   {
-    icon: Sparkles,
     title: 'Excellence',
     copy: 'Institutional-grade process applied to every transaction, from professional photography and valuation to notarised transfer.',
   },
   {
-    icon: HeartHandshake,
     title: 'Community-Driven',
-    copy: 'We invest in the neighbourhoods we serve — supporting local agents, builders and the families who put down roots there.',
+    copy: 'We invest in the neighbourhoods we serve, supporting local agents, builders and the families who put down roots there.',
   },
 ]
 
@@ -54,8 +51,8 @@ export default function About() {
 
           <Reveal delay={0.2}>
             <p className="mt-4 text-[16.5px] leading-relaxed text-body">
-              Today our team covers more than fifteen Kigali neighbourhoods — from Nyarutarama and
-              Kimihurura to Gisozi, Rusororo and the airport corridor — and we are expanding across
+              Today our team covers more than fifteen Kigali neighbourhoods, from Nyarutarama and
+              Kimihurura to Gisozi, Rusororo and the airport corridor, and we are expanding across
               Rwanda, one verified listing at a time. Our proudest work is helping families anchor
               down roots in pristine neighbourhoods they can call home for decades.
             </p>
@@ -115,11 +112,11 @@ export default function About() {
         </Reveal>
 
         <Stagger className="mt-10 grid gap-5 md:grid-cols-3">
-          {values.map((value) => (
+          {values.map((value, index) => (
             <StaggerItem key={value.title}>
-              <div className="h-full px-8 py-4">
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl text-navy-900 tap-target">
-                  <value.icon size={22} aria-hidden="true" />
+              <div className="relative h-full px-8 py-4">
+                <span className="absolute right-8 top-0 font-display text-[54px] font-bold leading-none text-navy-900/20" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
                 </span>
                 <h3 className="mt-6 font-display text-2xl font-semibold">{value.title}</h3>
                 <p className="mt-3 text-[14.5px] leading-relaxed text-body">{value.copy}</p>
@@ -154,7 +151,7 @@ export default function About() {
             Kigali, our promise is the same: honest advice, verified property and a team that stays
             with you until the keys are in your hand.”
           </p>
-          <p className="label-caps">The TuraHomes Team — Kigali, Rwanda</p>
+          <p className="label-caps">The TuraHomes Team, Kigali, Rwanda</p>
         </Reveal>
       </section>
     </PageTransition>

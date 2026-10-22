@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, Facebook, FileText, Instagram, Linkedin, MapPin, Sparkles, Users } from 'lucide-react'
+import { ArrowRight, Facebook, FileText, Instagram, Linkedin, MapPin, Star, Users } from 'lucide-react'
 import FilterHub from '../components/FilterHub'
 import CountUp from '../components/CountUp'
 import PropertyCard from '../components/PropertyCard'
@@ -17,10 +17,12 @@ const achievements = [
     note: 'Verified and updated weekly',
   },
   {
-    icon: Users,
-    value: 200,
-    label: 'Real Estate Agents',
-    note: 'Licensed professionals across Rwanda',
+    icon: Star,
+    value: 4.9,
+    suffix: ' / 5',
+    decimals: 1,
+    label: 'Client Rating',
+    note: 'Across 1,200 transactions',
   },
   {
     icon: MapPin,
@@ -91,33 +93,36 @@ export default function Home() {
 
               <Reveal delay={0.5}>
                 <p className="mt-7 max-w-lg text-[17px] leading-relaxed text-body break-words text-balance">
-                  Buy, sell, rent, and invest across Kigali with Tura Homes — verified listings,
+                  Buy, sell, rent, and invest across Kigali with Tura Homes, verified listings,
                   transparent pricing and a team that stays with you from first viewing to final
                   signature.
                 </p>
               </Reveal>
 
-              <Reveal delay={0.6}>
-                <div className="mt-9 flex flex-wrap items-center gap-4">
-                  <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-                    <Link
-                      to="/properties"
-                      className="inline-flex items-center gap-2 rounded-full border border-navy-900 bg-navy-900 px-7 py-3.5 text-[14.5px] font-semibold text-white shadow-[0_20px_38px_-18px_rgba(11,25,44,0.95)] transition-colors hover:bg-white hover:text-navy-900 tap-target"
-                    >
-                      Browse Properties
-                      <ArrowRight size={17} />
-                    </Link>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-                    <Link
-                      to="/services"
-                      className="inline-flex items-center gap-2 rounded-full border border-mist-200 bg-white px-7 py-3.5 text-[14.5px] font-semibold text-navy-900 transition-colors hover:bg-mist-50 tap-target"
-                    >
-                      Our Services
-                    </Link>
-                  </motion.div>
-                </div>
-              </Reveal>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="mt-9 flex flex-wrap items-center gap-4"
+              >
+                <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+                  <Link
+                    to="/properties"
+                    className="inline-flex items-center gap-2 rounded-full border border-navy-900 bg-navy-900 px-7 py-3.5 text-[14.5px] font-semibold text-white shadow-[0_20px_38px_-18px_rgba(11,25,44,0.95)] transition-colors hover:bg-white hover:text-navy-900 tap-target"
+                  >
+                    Browse Properties
+                    <ArrowRight size={17} />
+                  </Link>
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+                  <Link
+                    to="/services"
+                    className="inline-flex items-center gap-2 rounded-full border border-mist-200 bg-white px-7 py-3.5 text-[14.5px] font-semibold text-navy-900 transition-colors hover:bg-mist-50 tap-target"
+                  >
+                    Our Services
+                  </Link>
+                </motion.div>
+              </motion.div>
             </div>
 
           {/* Hero graphic */}
@@ -143,36 +148,11 @@ export default function Home() {
               />
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: -18 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.75 }}
-              className="absolute -bottom-6 left-4 rounded-2xl border border-mist-200 bg-white px-5 py-4 card-shadow sm:left-8"
-            >
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-body-light">
-                Kigali market
-              </p>
-              <p className="mt-1 font-display text-2xl font-semibold text-navy-900">300+ listings</p>
-              <p className="text-xs font-medium text-body">updated weekly</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 18 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.9 }}
-              className="absolute -top-5 right-4 rounded-2xl border border-mist-200 bg-white px-5 py-4 card-shadow"
-            >
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-body-light">
-                Client rating
-              </p>
-              <p className="mt-1 font-display text-2xl font-semibold text-navy-900">4.9 / 5</p>
-              <p className="text-xs font-medium text-body">across 1,200 transactions</p>
-            </motion.div>
           </motion.div>
         </div>
         </section>
 
-        {/* Search/filter bar — centered pill below the hero fold. */}
+        {/* Search/filter bar, centered pill below the hero fold. */}
         <section className="container-x pb-2 pt-10">
           <div className="mx-auto max-w-4xl">
             <FilterHub />
@@ -189,12 +169,26 @@ export default function Home() {
                   transition={{ type: 'spring', stiffness: 260, damping: 20 }}
                   className="flex h-full flex-col items-start gap-4 rounded-3xl border border-mist-200 bg-mist-50 p-8"
                 >
-                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl text-navy-900 tap-target">
-                    <item.icon size={22} aria-hidden="true" />
+                  <span className={`inline-flex h-12 items-center text-navy-900 ${item.icon === Star ? 'gap-1' : 'w-12 justify-center rounded-2xl tap-target'}`}>
+                    {item.icon === Star
+                      ? (
+                        <>
+                          {Array.from({ length: 4 }, (_, index) => (
+                            <Star key={index} size={22} fill="currentColor" aria-hidden="true" />
+                          ))}
+                          <span className="relative inline-flex" aria-hidden="true">
+                            <Star size={22} />
+                            <span className="absolute inset-0 overflow-hidden" style={{ clipPath: 'inset(0 50% 0 0)' }}>
+                              <Star size={22} fill="currentColor" />
+                            </span>
+                          </span>
+                        </>
+                      )
+                      : <item.icon size={22} aria-hidden="true" />}
                   </span>
                   <div>
                     <p className="font-display text-4xl font-semibold text-navy-900">
-                      <CountUp value={item.value} />
+                      <CountUp value={item.value} suffix={item.suffix} decimals={item.decimals} />
                     </p>
                     <p className="mt-1 text-[15px] font-semibold text-navy-800 truncate">{item.label}</p>
                     <p className="mt-2 text-sm leading-relaxed text-body-light truncate-2">{item.note}</p>
@@ -286,7 +280,7 @@ export default function Home() {
           </Reveal>
         </section>
 
-        {/* Follow Us — compact strip: logo left, social icons right. */}
+        {/* Follow Us, compact strip: logo left, social icons right. */}
         <section className="container-x -mb-8 flex items-center justify-end py-4">
           <div className="flex items-center gap-3">
             <p className="font-display text-sm font-bold leading-none text-navy-900">Follow Us</p>

@@ -68,7 +68,7 @@ const seedProperties = [
     id: 'demo-4',
     title: 'Modern Gated Rental Residence',
     description:
-      'A fully furnished apartment in Kacyiru’s diplomatic quarter — fibre internet, backup power and rooftop lounge access.',
+      'A fully furnished apartment in Kacyiru’s diplomatic quarter, with fibre internet, backup power and rooftop lounge access.',
     price: 1500000,
     category: 'Rent',
     type: 'Apartment',

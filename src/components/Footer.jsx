@@ -33,7 +33,7 @@ export default function Footer() {
             className="h-12 w-auto brightness-0 invert"
           />
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/70">
-            Transparent real estate across Rwanda — helping families, professionals and investors
+            Transparent real estate across Rwanda, helping families, professionals and investors
             anchor down roots in pristine neighbourhoods.
           </p>
         </div>
