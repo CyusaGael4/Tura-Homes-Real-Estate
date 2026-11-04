@@ -108,7 +108,7 @@ export default function PropertyDetail({ property, isLoading = false }) {
                 </Link>
                 <a
                   href={`mailto:hello@turahomes.rw?subject=Enquiry about ${encodeURIComponent(property.title)}`}
-                  className="inline-flex items-center gap-2 rounded-full border border-mist-200 bg-white px-6 py-3.5 text-sm font-semibold text-navy-900 transition-colors hover:bg-mist-100 tap-target"
+                  className="inline-flex items-center gap-2 rounded-full border-2 border-navy-900 bg-white px-6 py-3.5 text-sm font-semibold text-navy-900 transition-colors hover:bg-navy-900 hover:text-white tap-target"
                 >
                   <Mail size={16} /> Email an advisor
                 </a>

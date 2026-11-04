@@ -95,7 +95,7 @@ export default function Navbar() {
                 aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={mobileOpen}
                 aria-controls="mobile-menu"
-                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-mist-200 bg-white text-navy-900 transition-colors hover:bg-mist-50 lg:hidden tap-target"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-navy-900 transition-colors hover:bg-mist-50 lg:hidden tap-target"
               >
                 <span className="relative h-[22px] w-[22px]" aria-hidden="true">
                   <motion.span

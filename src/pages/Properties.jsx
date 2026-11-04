@@ -107,7 +107,7 @@ export default function Properties() {
                     setLocationDraft('')
                     setSearchParams({})
                   }}
-                  className="h-[50px] w-full rounded-full border border-mist-200 px-6 text-[14px] font-semibold text-navy-900 transition-colors hover:bg-mist-50 lg:w-auto tap-target"
+                  className="h-[50px] w-full rounded-full border-2 border-navy-900 px-6 text-[14px] font-semibold text-navy-900 transition-colors hover:bg-navy-900 hover:text-white lg:w-auto tap-target"
                 >
                   Reset
                 </button>

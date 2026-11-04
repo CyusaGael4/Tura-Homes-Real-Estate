@@ -50,11 +50,23 @@ export default function Home() {
       <div>
         {/* Hero */}
         <section className="relative [clip-path:inset(-100vh_0_-100vh_-100vw)] [overflow-x:clip] overflow-y-visible">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] overflow-hidden rounded-full bg-mist-100 blur-3xl"
-          />
-          <div className="container-x relative grid min-h-[calc(100svh_-_76px)] items-center gap-10 pb-8 pt-10 lg:grid-cols-2 lg:pt-14">
+          <div aria-hidden="true" className="absolute inset-0 z-0">
+            <img
+              src="/assets/luxury-villa.jpg"
+              alt=""
+              className="h-full w-full object-cover contrast-110 saturate-110"
+              loading="eager"
+              decoding="async"
+              onError={(event) => {
+                if (!event.currentTarget.dataset.fallback) {
+                  event.currentTarget.dataset.fallback = '1'
+                  event.currentTarget.src = '/assets/mansion-kigali.jpg'
+                }
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/25 via-white/8 to-transparent" />
+          </div>
+          <div className="container-x relative z-10 grid min-h-[calc(100svh_-_76px)] items-center gap-10 pb-8 pt-10 lg:grid-cols-2 lg:pt-14">
             <div>
               <h1 className="font-display text-[38px] font-semibold leading-[1.08] tracking-tight text-navy-900 sm:text-[48px] lg:text-[52px] text-balance">
                 <motion.span
@@ -92,7 +104,7 @@ export default function Home() {
               </h1>
 
               <Reveal delay={0.5}>
-                <p className="mt-7 max-w-lg text-[17px] leading-relaxed text-body break-words text-balance">
+                <p className="mt-7 max-w-lg text-[17px] leading-relaxed bg-gradient-to-r from-navy-900 via-navy-700 to-navy-500 bg-clip-text text-transparent font-semibold break-words text-balance">
                   Buy, sell, rent, and invest across Kigali with Tura Homes, verified listings,
                   transparent pricing and a team that stays with you from first viewing to final
                   signature.
@@ -117,7 +129,7 @@ export default function Home() {
                 <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
                   <Link
                     to="/services"
-                    className="inline-flex items-center gap-2 rounded-full border border-mist-200 bg-white px-7 py-3.5 text-[14.5px] font-semibold text-navy-900 transition-colors hover:bg-mist-50 tap-target"
+                    className="inline-flex items-center gap-2 rounded-full border-2 border-navy-900 bg-white px-7 py-3.5 text-[14.5px] font-semibold text-navy-900 transition-colors hover:bg-navy-900 hover:text-white tap-target"
                   >
                     Our Services
                   </Link>
@@ -125,36 +137,12 @@ export default function Home() {
               </motion.div>
             </div>
 
-          {/* Hero graphic */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94, y: 24 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="relative"
-          >
-            <div className="overflow-hidden rounded-[36px] border border-mist-200 card-shadow-lg">
-              <img
-                src="/assets/luxury-villa.jpg"
-                alt="Modern TuraHomes villa lit at dusk in Kigali"
-                className="h-[300px] w-full object-cover sm:h-[380px] lg:h-[430px]"
-                loading="eager"
-                decoding="async"
-                onError={(event) => {
-                  if (!event.currentTarget.dataset.fallback) {
-                    event.currentTarget.dataset.fallback = '1'
-                    event.currentTarget.src = '/assets/mansion-kigali.jpg'
-                  }
-                }}
-              />
-            </div>
-
-          </motion.div>
-        </div>
+         </div>
         </section>
 
         {/* Search/filter bar, centered pill below the hero fold. */}
-        <section className="container-x pb-2 pt-10">
-          <div className="mx-auto max-w-4xl">
+        <section className="container-x relative z-20 pb-2 pt-6">
+          <div className="mx-auto max-w-3xl">
             <FilterHub />
           </div>
         </section>
@@ -270,7 +258,7 @@ export default function Home() {
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.96 }} className="mt-9 inline-block">
                   <Link
                     to="/about"
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-[14.5px] font-semibold text-navy-900 transition-colors hover:bg-navy-900 hover:text-white tap-target"
+                    className="inline-flex items-center gap-2 rounded-full border-2 border-navy-900 bg-white px-8 py-3.5 text-[14.5px] font-semibold text-navy-900 transition-colors hover:bg-navy-900 hover:text-white tap-target"
                   >
                     Meet TuraHomes <ArrowRight size={17} />
                   </Link>

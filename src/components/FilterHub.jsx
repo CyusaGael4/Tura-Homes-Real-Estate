@@ -31,7 +31,7 @@ export default function FilterHub({ initial = {}, compact = false }) {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className={`grid w-full gap-4 rounded-[28px] border border-mist-200 bg-white p-5 card-shadow sm:p-6 lg:rounded-full ${
+      className={`grid w-full gap-3 rounded-[28px] bg-white p-4 shadow-[0_8px_24px_rgba(11,25,44,0.18)] sm:p-5 lg:rounded-full ${
         compact ? 'sm:grid-cols-[1fr_1fr_1.3fr_auto]' : 'md:grid-cols-[1fr_1fr_1.3fr_auto]'
       }`}
       role="search"

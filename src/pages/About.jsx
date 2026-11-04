@@ -71,7 +71,7 @@ export default function About() {
               <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
                 <Link
                   to="/services"
-                  className="inline-flex items-center gap-2 rounded-full border border-mist-200 bg-white px-7 py-3.5 text-[14.5px] font-semibold text-navy-900 transition-colors hover:bg-mist-50"
+                  className="inline-flex items-center gap-2 rounded-full border-2 border-navy-900 bg-white px-7 py-3.5 text-[14.5px] font-semibold text-navy-900 transition-colors hover:bg-navy-900 hover:text-white"
                 >
                   Work with us
                 </Link>
