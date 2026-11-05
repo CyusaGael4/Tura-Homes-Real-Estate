@@ -9,11 +9,14 @@ import Services from './pages/Services'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import PropertyDetail from './pages/PropertyDetail'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
 import { PropertiesProvider, useProperties } from './context/PropertiesContext'
 import { localPropertyCatalog } from './data/demoProperties'
 import { PageTransition } from './components/motion'
 import { useMemo } from 'react'
 import { normalizeProperty } from './lib/properties'
+import usePageMeta from './hooks/usePageMeta'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -76,6 +79,13 @@ function PropertyDetailPage() {
 }
 
 function NotFound() {
+  usePageMeta({
+    title: 'Page Not Found',
+    description:
+      'The page or listing you were looking for may have been sold, rented or moved. Browse the live TuraHomes portfolio in Kigali instead.',
+    path: '/404',
+  })
+
   return (
     <PageTransition>
       <section className="container-x flex flex-col items-center py-32 text-center">
@@ -106,6 +116,8 @@ function AppRoutes() {
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
         <Route path="/properties/:id" element={<PropertyDetailPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

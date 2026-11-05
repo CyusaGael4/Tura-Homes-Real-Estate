@@ -20,4 +20,12 @@
     <loc>https://turahomesrealestate.vercel.app/contact</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://turahomesrealestate.vercel.app/privacy</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://turahomesrealestate.vercel.app/terms</loc>
+    <priority>0.3</priority>
+  </url>
 </urlset>

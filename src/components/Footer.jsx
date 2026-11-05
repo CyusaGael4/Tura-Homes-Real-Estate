@@ -83,7 +83,15 @@ export default function Footer() {
       >
         <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/55 sm:flex-row">
           <p>© {new Date().getFullYear()} TuraHomes Real Estate. All rights reserved.</p>
-          <p>Rwanda · The Land of a Thousand Hills</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <Link to="/privacy" className="transition-colors hover:text-white">
+              Privacy Policy
+            </Link>
+            <Link to="/terms" className="transition-colors hover:text-white">
+              Terms of Service
+            </Link>
+            <span>Rwanda · The Land of a Thousand Hills</span>
+          </div>
         </div>
       </motion.div>
     </footer>

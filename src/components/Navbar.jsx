@@ -65,7 +65,7 @@ export default function Navbar() {
                   key={link.to}
                   to={link.to}
                   end={link.to === '/'}
-                  className="relative px-4 py-2"
+                  className="relative rounded-full px-4 py-2 transition-colors duration-300 hover:bg-mist-50"
                 >
                   {({ isActive }) => (
                     <>
@@ -79,7 +79,7 @@ export default function Navbar() {
                         <motion.span
                           layoutId="nav-underline"
                           className="absolute inset-x-3 -bottom-[6px] h-[2px] rounded-full bg-navy-900"
-                          transition={{ type: 'spring', stiffness: 420, damping: 32 }}
+                          transition={{ type: 'spring', stiffness: 340, damping: 30, mass: 0.6 }}
                         />
                       )}
                     </>
@@ -129,25 +129,37 @@ export default function Navbar() {
                 transition={{ duration: 0.18 }}
                 className="absolute inset-x-0 top-full border-b border-mist-200 bg-white shadow-lg lg:hidden"
               >
-                <div className="container-x flex flex-col py-2">
+                <motion.div
+                  className="container-x flex flex-col py-2"
+                  initial="hidden"
+                  animate="show"
+                  variants={{ show: { transition: { staggerChildren: 0.045, delayChildren: 0.04 } } }}
+                >
                   {LINKS.map((link) => (
-                    <NavLink
+                    <motion.div
                       key={link.to}
-                      to={link.to}
-                      end={link.to === '/'}
-                      onClick={() => setMobileOpen(false)}
-                      className={({ isActive }) =>
-                        `rounded-lg px-4 py-3 text-[15px] font-semibold transition-colors ${
-                          isActive
-                            ? 'bg-mist-50 text-navy-900'
-                            : 'text-body hover:bg-mist-50 hover:text-navy-900'
-                        }`
-                      }
+                      variants={{
+                        hidden: { opacity: 0, y: -6 },
+                        show: { opacity: 1, y: 0, transition: { duration: 0.28, ease: [0.22, 1, 0.36, 1] } },
+                      }}
                     >
-                      {link.label}
-                    </NavLink>
+                      <NavLink
+                        to={link.to}
+                        end={link.to === '/'}
+                        onClick={() => setMobileOpen(false)}
+                        className={({ isActive }) =>
+                          `block rounded-lg px-4 py-3 text-[15px] font-semibold transition-colors duration-300 ${
+                            isActive
+                              ? 'bg-mist-50 text-navy-900'
+                              : 'text-body hover:bg-mist-50 hover:text-navy-900'
+                          }`
+                        }
+                      >
+                        {link.label}
+                      </NavLink>
+                    </motion.div>
                   ))}
-                </div>
+                </motion.div>
               </motion.nav>
             )}
           </AnimatePresence>

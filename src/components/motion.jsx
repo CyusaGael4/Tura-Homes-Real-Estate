@@ -56,14 +56,17 @@ export function StaggerItem({ children, className = '' }) {
   )
 }
 
-/** Shared page-transition wrapper used by the router. */
+/**
+ * Shared page-transition wrapper used by the router. The exit is deliberately
+ * quicker than the entrance so switching tabs feels responsive, not sluggish.
+ */
 export function PageTransition({ children }) {
   return (
     <motion.main
-      initial={{ opacity: 0, y: 14 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      exit={{ opacity: 0, y: -8, transition: { duration: 0.22, ease: [0.4, 0, 1, 1] } }}
+      transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.main>

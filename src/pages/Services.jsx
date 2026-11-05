@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ShieldCheck, Headset, FileSignature } from 'lucide-react'
 import { PageTransition, Reveal, Stagger, StaggerItem } from '../components/motion'
+import usePageMeta from '../hooks/usePageMeta'
 
 const services = [
   {
@@ -34,6 +35,13 @@ const process = [
 ]
 
 export default function Services() {
+  usePageMeta({
+    title: 'Our Services',
+    description:
+      'TuraHomes services for Kigali property owners and investors: property management, investment advisory and legal consultation, from tenant sourcing to notarised transfer.',
+    path: '/services',
+  })
+
   return (
     <PageTransition>
       <section className="border-b border-mist-200 bg-mist-50">
@@ -59,7 +67,7 @@ export default function Services() {
                 index % 2 === 1 ? 'lg:[&>figure]:order-2' : ''
               }`}
             >
-              <figure className="relative overflow-hidden rounded-[24px]">
+              <figure className="relative overflow-hidden">
                 <img
                   src={service.image}
                   alt={`${service.title} by TuraHomes`}

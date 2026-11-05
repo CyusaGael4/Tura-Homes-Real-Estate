@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Users } from 'lucide-react'
 import CountUp from '../components/CountUp'
 import { PageTransition, Reveal, Stagger, StaggerItem } from '../components/motion'
+import usePageMeta from '../hooks/usePageMeta'
 import aboutImage from '../../assets/chatgpt-image-sep-4-2026-11-26-17-am.jpg'
 
 const values = [
@@ -24,10 +25,17 @@ const stats = [
   { value: 300, label: 'Active listings' },
   { value: 200, label: 'Licensed agents' },
   { value: 15, label: 'Kigali neighbourhoods' },
-  { value: 1200, label: 'Closed transactions' },
+  { value: 700, label: 'Closed transactions' },
 ]
 
 export default function About() {
+  usePageMeta({
+    title: 'About Us',
+    description:
+      'TuraHomes Real Estate is a Kigali property brand built on transparency: verified listings, honest pricing and documented transactions across 15 neighbourhoods since 2018.',
+    path: '/about',
+  })
+
   return (
     <PageTransition>
       {/* Brand story */}
@@ -86,7 +94,7 @@ export default function About() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="relative"
         >
-          <div className="overflow-hidden rounded-[32px] border border-mist-200 card-shadow-lg">
+          <div className="overflow-hidden border border-mist-200 card-shadow-lg">
             <img
               src={aboutImage}
               alt="TuraHomes about us image"

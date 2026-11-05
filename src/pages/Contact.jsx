@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Link, useSearchParams } from 'react-router-dom'
 import { ArrowRight, CalendarDays, Clock3, Mail, MapPin, Phone, Send } from 'lucide-react'
 import { PageTransition, Reveal } from '../components/motion'
+import usePageMeta from '../hooks/usePageMeta'
 
 const enquiries = ['Buy a property', 'Rent a property', 'Sell my property', 'Property management', 'Investment advice', 'Other']
 
@@ -15,6 +16,13 @@ export default function Contact() {
   const [enquiry, setEnquiry] = useState(selectedProperty ? 'Buy a property' : '')
   const [message, setMessage] = useState('')
   const [sent, setSent] = useState(false)
+
+  usePageMeta({
+    title: 'Contact Us',
+    description:
+      'Talk to a TuraHomes advisor about buying, selling, renting or managing property in Kigali. Call, email or book a viewing at our Kacyiru office.',
+    path: '/contact',
+  })
 
   useEffect(() => {
     if (selectedProperty) setEnquiry('Buy a property')

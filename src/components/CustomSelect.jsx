@@ -41,16 +41,18 @@ export default function CustomSelect({
 
   return (
     <div ref={wrapRef} className="relative min-w-0">
-      <span className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.18em] text-body-light">
-        {label}
-      </span>
+      {label && (
+        <span className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.18em] text-body-light">
+          {label}
+        </span>
+      )}
 
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        className={`flex w-full items-center justify-between gap-3 rounded-xl border bg-white px-4 py-3.5 text-left text-[14.5px] font-semibold text-navy-900 transition-colors hover:border-navy-100 hover:bg-mist-50 ${
+        className={`flex h-12 w-full items-center justify-between gap-3 rounded-xl border bg-white px-4 text-left text-[14.5px] font-semibold text-navy-900 transition-colors hover:border-navy-100 hover:bg-mist-50 ${
           open ? 'border-navy-900 ring-4 ring-navy-900/10' : 'border-mist-200'
         } tap-target`}
       >

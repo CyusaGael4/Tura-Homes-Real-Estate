@@ -1,9 +1,11 @@
+import { forwardRef } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Bath, BedDouble, Maximize, MapPin } from 'lucide-react'
+import { Bath, BedDouble, Maximize, MapPin } from 'lucide-react'
 import { formatArea, formatRWF, LOCAL_PHOTOS } from '../lib/properties'
 
-export default function PropertyCard({ property, index = 0 }) {
+// forwardRef keeps AnimatePresence's popLayout measurement working.
+const PropertyCard = forwardRef(function PropertyCard({ property, index = 0 }, ref) {
   const saveSelectedProperty = () => {
     try {
       sessionStorage.setItem(`turahomes:property:${property.id}`, JSON.stringify(property))
@@ -20,15 +22,26 @@ export default function PropertyCard({ property, index = 0 }) {
 
   return (
     <motion.article
+      ref={ref}
+      layout
       initial={{ opacity: 0, y: 26 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.96 }}
       transition={{ duration: 0.5, delay: Math.min(index * 0.06, 0.4), ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ scale: 1.025, y: -6 }}
       viewport={{ once: true }}
-      className="group flex flex-col overflow-hidden rounded-3xl border border-mist-200 bg-white transition-shadow duration-300 card-shadow hover:shadow-[0_28px_60px_-22px_rgba(11,25,44,0.3)]"
+      className="group relative flex flex-col overflow-hidden rounded-3xl border border-mist-200 bg-white transition-shadow duration-300 card-shadow hover:shadow-[0_28px_60px_-22px_rgba(11,25,44,0.3)]"
       aria-label={property.title}
     >
+      {/* Whole-card link: keeps the card semantic while making every pixel navigable. */}
+      <Link
+        to={`/properties/${property.id}`}
+        state={{ property }}
+        onClick={saveSelectedProperty}
+        aria-label={`View details for ${property.title}`}
+        className="absolute inset-0 z-20 rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy-900"
+      />
+
       <div className="relative aspect-[4/3] overflow-hidden bg-mist-100">
         <motion.img
           src={property.image}
@@ -90,17 +103,8 @@ export default function PropertyCard({ property, index = 0 }) {
           ))}
         </div>
       </div>
-
-      <div className="border-t border-mist-200 p-2.5 pt-2">
-        <Link
-          to={`/properties/${property.id}`}
-          state={{ property }}
-          onClick={saveSelectedProperty}
-          className="block w-full rounded-full border border-navy-900 bg-navy-900 px-4 py-1.5 text-center text-[13px] font-semibold text-white transition-colors hover:bg-white hover:text-navy-900 tap-target"
-        >
-          View details <ArrowRight size={12} className="ml-1.5 inline" />
-        </Link>
-      </div>
     </motion.article>
   )
-}
+})
+
+export default PropertyCard

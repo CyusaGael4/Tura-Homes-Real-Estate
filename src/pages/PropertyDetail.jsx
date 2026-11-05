@@ -3,8 +3,19 @@ import { Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, Bath, BedDouble, Maximize, MapPin, Phone, Mail } from 'lucide-react'
 import { PageTransition, Reveal } from '../components/motion'
 import { formatArea, formatRWF } from '../lib/properties'
+import usePageMeta from '../hooks/usePageMeta'
 
 export default function PropertyDetail({ property, isLoading = false }) {
+  usePageMeta({
+    title: property.title,
+    description:
+      property.description?.length > 155
+        ? `${property.description.slice(0, 152).trimEnd()}…`
+        : property.description,
+    path: `/properties/${property.id}`,
+    image: property.image?.startsWith('http') ? property.image : undefined,
+  })
+
   const specs = [
     { icon: BedDouble, label: property.bedrooms ? `${property.bedrooms} Beds` : '-' },
     { icon: Bath, label: property.bathrooms ? `${property.bathrooms} Baths` : '-' },
@@ -18,7 +29,7 @@ export default function PropertyDetail({ property, isLoading = false }) {
           <ArrowLeft size={16} /> Back to properties
         </Link>
         <div className="grid gap-10 lg:grid-cols-2">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[32px] border border-mist-200 bg-mist-100 card-shadow-lg">
+          <div className="relative aspect-[4/3] overflow-hidden border border-mist-200 bg-mist-100 card-shadow-lg">
             <motion.img
               src={property.image}
               alt={property.title}
