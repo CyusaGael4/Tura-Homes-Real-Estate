@@ -46,8 +46,8 @@ export default function Home() {
       .filter((p) => p.featured)
       .concat(properties.filter((p) => !p.featured))
     return withDistributedPhotos(ordered.slice(0, 3), [
-      '/assets/luxury-villa.jpg',
-      '/assets/hero-estate.jpg',
+      '/images/luxury-villa.jpg',
+      '/images/hero-estate.jpg',
     ])
   }, [properties])
 
@@ -64,7 +64,7 @@ export default function Home() {
           {/* Background Layer */}
           <div aria-hidden="true" className="absolute inset-0 z-0 overflow-hidden">
             <img
-              src="/assets/chatgpt-image-sep-4-2026-11-26-17-am.jpg"
+              src="/images/hero-kigali-apartments.jpg"
               alt="Modern residential building in Kigali with landscaped gardens and paved street frontage"
               className="h-full w-full object-cover contrast-110 saturate-110 brightness-[0.85]"
               loading="eager"
@@ -72,7 +72,7 @@ export default function Home() {
               onError={(event) => {
                 if (!event.currentTarget.dataset.fallback) {
                   event.currentTarget.dataset.fallback = '1'
-                  event.currentTarget.src = '/assets/mansion-kigali.jpg'
+                  event.currentTarget.src = '/images/mansion-kigali.jpg'
                 }
               }}
             />

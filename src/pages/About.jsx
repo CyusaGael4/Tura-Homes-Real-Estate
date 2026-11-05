@@ -4,7 +4,6 @@ import { ArrowRight, Users } from 'lucide-react'
 import CountUp from '../components/CountUp'
 import { PageTransition, Reveal, Stagger, StaggerItem } from '../components/motion'
 import usePageMeta from '../hooks/usePageMeta'
-import aboutImage from '../../assets/chatgpt-image-sep-4-2026-11-26-17-am.jpg'
 
 const values = [
   {
@@ -96,7 +95,7 @@ export default function About() {
         >
           <div className="overflow-hidden border border-mist-200 card-shadow-lg">
             <img
-              src={aboutImage}
+              src="/images/hero-kigali-apartments.jpg"
               alt="TuraHomes about us image"
               className="h-[320px] w-full object-cover sm:h-[420px]"
             />

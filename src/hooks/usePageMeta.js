@@ -4,7 +4,7 @@ export const SITE_NAME = 'TuraHomes Real Estate'
 export const SITE_URL = 'https://turahomesrealestate.vercel.app'
 export const SITE_DESCRIPTION =
   'TuraHomes Real Estate | buy, sell, rent and invest across Kigali, the Land of a Thousand Hills.'
-const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/chatgpt-image-sep-4-2026-11-26-17-am.jpg`
+const DEFAULT_OG_IMAGE = `${SITE_URL}/images/hero-kigali-apartments.jpg`
 
 const setMeta = (attribute, key, content) => {
   if (!content) return

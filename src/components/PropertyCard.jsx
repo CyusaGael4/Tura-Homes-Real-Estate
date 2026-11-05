@@ -2,7 +2,7 @@ import { forwardRef } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Bath, BedDouble, Maximize, MapPin } from 'lucide-react'
-import { formatArea, formatRWF, LOCAL_PHOTOS } from '../lib/properties'
+import { formatArea, formatCategoryLabel, formatRWF, LOCAL_PHOTOS } from '../lib/properties'
 
 // forwardRef keeps AnimatePresence's popLayout measurement working.
 const PropertyCard = forwardRef(function PropertyCard({ property, index = 0 }, ref) {
@@ -62,7 +62,7 @@ const PropertyCard = forwardRef(function PropertyCard({ property, index = 0 }, r
         <div className="absolute inset-0 bg-gradient-to-t from-navy-950/55 via-transparent to-transparent" />
 
         <span className="absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[10.5px] font-bold uppercase tracking-[0.12em] text-navy-900 backdrop-blur">
-          {property.category}
+          {formatCategoryLabel(property.category)}
         </span>
 
         <span className="absolute bottom-[10px] left-3 right-3 text-base leading-tight font-extrabold text-white drop-shadow-sm text-balance pointer-events-none">

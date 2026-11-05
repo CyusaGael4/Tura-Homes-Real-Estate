@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, Bath, BedDouble, Maximize, MapPin, Phone, Mail } from 'lucide-react'
 import { PageTransition, Reveal } from '../components/motion'
-import { formatArea, formatRWF } from '../lib/properties'
+import { formatArea, formatCategoryLabel, formatRWF } from '../lib/properties'
 import usePageMeta from '../hooks/usePageMeta'
 
 export default function PropertyDetail({ property, isLoading = false }) {
@@ -41,7 +41,7 @@ export default function PropertyDetail({ property, isLoading = false }) {
               onError={(event) => {
                 if (!event.currentTarget.dataset.fallback) {
                   event.currentTarget.dataset.fallback = '1'
-                  event.currentTarget.src = '/assets/luxury-villa.jpg'
+                  event.currentTarget.src = '/images/luxury-villa.jpg'
                 }
               }}
             />
@@ -49,7 +49,7 @@ export default function PropertyDetail({ property, isLoading = false }) {
           </div>
 
           <Reveal className="flex flex-col gap-5">
-            <p className="label-caps">{isLoading ? 'Loading property' : `${property.category} · ${property.type}`}</p>
+            <p className="label-caps">{isLoading ? 'Loading property' : formatCategoryLabel(property.category)}</p>
 
             <h1 className="font-display text-[34px] font-semibold leading-tight sm:text-[44px] text-balance">
               {property.title}

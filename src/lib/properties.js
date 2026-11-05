@@ -1,20 +1,19 @@
 /**
- * Normalises a raw `properties` row from Supabase into the shape the UI renders.
- * The live table columns are: id, title, description, category, type, location,
- * price, currency, image_url, beds, baths, sqft, featured, created_at; the
- * mapping stays tolerant of alternative spellings just in case.
+ * Normalises a raw property object (local seed data, a session-storage copy or
+ * any future API row) into the single shape the UI renders. The mapping stays
+ * tolerant of alternative property-key spellings on purpose.
  */
 
 export const LOCAL_PHOTOS = [
-  '/assets/hero-estate.jpg',
-  '/assets/villa-cream.jpg',
-  '/assets/house-modern.jpg',
-  '/assets/garden-bungalow.jpg',
-  '/assets/mansion-kigali.jpg',
-  '/assets/estate-lawn.jpg',
-  '/assets/green-bungalow.jpg',
-  '/assets/luxury-villa.jpg',
-  '/assets/interior-lounge.jpg',
+  '/images/hero-estate.jpg',
+  '/images/villa-cream.jpg',
+  '/images/house-modern.jpg',
+  '/images/garden-bungalow.jpg',
+  '/images/mansion-kigali.jpg',
+  '/images/estate-lawn.jpg',
+  '/images/green-bungalow.jpg',
+  '/images/luxury-villa.jpg',
+  '/images/interior-lounge.jpg',
 ]
 
 /**
@@ -24,7 +23,7 @@ export const LOCAL_PHOTOS = [
 const isUsableImageUrl = (value) => {
   if (typeof value !== 'string' || !value.trim()) return false
   const raw = value.trim()
-  if (!/^https?:\/\//i.test(raw)) return true // local path like /assets/...
+  if (!/^https?:\/\//i.test(raw)) return true // local path like /images/...
   try {
     const url = new URL(raw)
     const blockedHosts = ['unsplash.com', 'www.unsplash.com', 'picsum.photos', 'example.com']
@@ -107,6 +106,19 @@ const correctLocationSpelling = (value) => String(value || '').replace(/gaculiro
 
 export const PROPERTY_CATEGORIES = ['Buy', 'Rent', 'Sell', 'Invest']
 export const PROPERTY_TYPES = ['Apartment', 'House', 'Villa', 'Commercial', 'Land']
+
+const CATEGORY_LABELS = {
+  buy: 'For sale',
+  sell: 'For sale',
+  rent: 'For rent',
+  invest: 'For investment',
+}
+
+/** Turns a category such as `Rent` into the badge wording shown on listings. */
+export function formatCategoryLabel(category) {
+  const key = String(category || '').trim().toLowerCase()
+  return CATEGORY_LABELS[key] || String(category || 'For sale')
+}
 
 export function normalizeProperty(row, index = 0) {
   if (!row || typeof row !== 'object') return null

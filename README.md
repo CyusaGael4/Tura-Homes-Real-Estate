@@ -80,8 +80,9 @@ have a unique `id` and can include:
 - `type` (for example, `Apartment`, `House`, `Villa`, `Commercial`, or `Land`)
 - `location`, `city`, `bedrooms`, `bathrooms`, `area`, `featured`, and `status`
 
-Put runtime-served listing images in `public/assets/` and use paths such as
-`/assets/property-name.jpg`. The About page image is imported from `assets/` and bundled by Vite.
+Put listing images in `public/images/` and use paths such as
+`/images/property-name.jpg`. Every image, including the home hero and the social
+preview image, is served from that one folder.
 If a listing image fails to load, the site uses a local fallback image.
 
 ### Contact enquiries
@@ -92,16 +93,20 @@ the enquiry. The visitor must send the draft from their own email application.
 ## Project structure
 
 ```text
-assets/                 Images bundled into the app by Vite
-public/assets/          Static images and the site logo
+public/
+  images/               Images and the site logo, served at /images/
+  robots.txt            Crawler rules
+  sitemap.xml           Indexable routes
+index.html              HTML shell and page metadata
 src/
-  components/            Shared navigation, cards, filters, and motion effects
-  context/               Shared local property data and filtering
-  data/                  Demonstration property listings
-  lib/                   Property formatting, normalization, and image helpers
-  pages/                 Home, Properties, Property Detail, Services, About, Contact
-  App.jsx                Routes and shared page layout
-  main.jsx               React entry point
+  components/           Shared navigation, cards, filters, and motion effects
+  context/              Shared local property data and filtering
+  data/                 Demonstration property listings
+  hooks/                Page title, meta, and canonical URL handling
+  lib/                  Property formatting, normalization, and image helpers
+  pages/                Home, Properties, Property Detail, Services, About, Contact, Privacy, Terms
+  App.jsx               Routes and shared page layout
+  main.jsx              React entry point
 ```
 
 ### Deploy the website

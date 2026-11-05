@@ -4,3 +4,7 @@ dist/
 !.env.example
 *.log
 .DS_Store
+
+# Editor and agent workspace metadata
+.freebuff/
+.cloud-attachments/

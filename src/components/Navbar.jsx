@@ -15,7 +15,7 @@ function Logo() {
     <Link to="/" className="group flex items-center" aria-label="TuraHomes home">
       <motion.span whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} className="block">
         <img
-          src="/assets/logo.png"
+          src="/images/logo.png"
           alt="TuraHomes Real Estate"
           className="h-12 w-auto sm:h-[62px]"
         />

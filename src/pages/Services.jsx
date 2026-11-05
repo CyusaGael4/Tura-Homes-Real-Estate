@@ -10,21 +10,21 @@ const services = [
     title: 'Property Management',
     copy: 'Complete listing administration and maintenance workflows: tenant sourcing, rent collection, inspections, repairs and monthly owner reporting, all handled by a dedicated portfolio manager.',
     points: ['Tenant screening & leasing', 'Rent collection and reconciliation', 'Maintenance ticketing & inspections'],
-    image: '/assets/mansion-kigali.jpg',
+    image: '/images/mansion-kigali.jpg',
   },
   {
     kicker: '02 - Growth',
     title: 'Investment Advisory',
     copy: 'Helping clients locate premium, high-yield land and commercial opportunities in fast-growing sectors, with yield modelling, corridor analysis and off-market access across Rwanda.',
     points: ['Yield & appreciation modelling', 'Commercial and land sourcing', 'Off-market development plots'],
-    image: '/assets/estate-lawn.jpg',
+    image: '/images/estate-lawn.jpg',
   },
   {
     kicker: '03 - Compliance',
     title: 'Legal Consultation',
     copy: 'Secure transactional processing, title deed verification and localized compliance support, from RDB registration and notarised transfers to mortgage-ready documentation.',
     points: ['Title deed verification & search', 'Notarised transfers and contracts', 'RDB and local compliance support'],
-    image: '/assets/green-bungalow.jpg',
+    image: '/images/green-bungalow.jpg',
   },
 ]
 

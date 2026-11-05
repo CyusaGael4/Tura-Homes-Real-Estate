@@ -28,7 +28,7 @@ export default function Footer() {
       <div className="container-x grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <img
-            src="/assets/logo.png"
+            src="/images/logo.png"
             alt="TuraHomes Real Estate"
             className="h-12 w-auto brightness-0 invert"
           />
