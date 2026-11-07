@@ -20,11 +20,11 @@ the app does not connect to a live database or submit enquiries to a server.
 
 ## Technology
 
-- React 18 and React Router
-- Vite 5
+- React+vite and React Router
 - Tailwind CSS 4
 - Framer Motion
 - Lucide React
+- Supabase
 
 ## Requirements
 
