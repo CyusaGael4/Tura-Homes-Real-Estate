@@ -21,7 +21,7 @@ the app does not connect to a live database or submit enquiries to a server.
 ## Technology
 
 - React+vite and React Router
-- Tailwind CSS 4
+- Tailwind CSS
 - Framer Motion
 - Lucide React
 - Supabase
